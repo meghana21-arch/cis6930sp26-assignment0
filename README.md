@@ -13,7 +13,7 @@ CIS6930 Assignment 0: API data collection (PokeAPI) + NaviGator AI summary.
 ## Prerequisites
 
 - **Python 3.10+**
-- **uv** (recommended) or **pip**
+- **uv** or **pip**
 
 Install uv: https://docs.astral.sh/uv/getting-started/installation/
 
@@ -167,14 +167,24 @@ uv run pytest
 
 ---
 
-## CI/CD
+## GitHub Actions (CI/CD) — mandatory for assignment
 
-GitHub Actions runs tests on every push. See `.github/workflows/pytest.yml`. The workflow runs:
+Tests run automatically on **every push** and **every pull request** via GitHub Actions.
 
-```bash
-uv sync --all-extras
-uv run pytest -v
-```
+### What runs
+
+- Workflow file: **`.github/workflows/pytest.yml`**
+- On each run: checkout repo → install uv → install Python 3.10 → `uv sync` → `uv run pytest -v`
+
+### How to use it
+
+1. **Trigger a run:** Push to any branch (e.g. `git push origin main`).
+2. **See results:** Repo → **Actions** tab → open the latest run.
+3. **Green checkmark** = all tests passed. **Red X** = fix the failing step (usually a test), then push again.
+
+### Full guide
+
+See **[GITHUB_ACTIONS_GUIDE.md](GITHUB_ACTIONS_GUIDE.md)** for step-by-step setup, how to read logs, and how to fix failures.
 
 ---
 
