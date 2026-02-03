@@ -1,6 +1,8 @@
 name: PyTest
 
-on: push
+on:
+  push:
+  workflow_dispatch:   # Adds "Run workflow" button in Actions tab
 
 jobs:
   test:
